@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "httpx-pydantic"
+version = "0.1.0"
+description = ""
+authors = ["Jelmer Draaijer <info@jelmert.nl>"]
+readme = "README.md"
+packages = [{include = "httpx_pydantic"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+httpx = "^0.24.1"
+fastapi = "^0.98.0"
+pydantic = "^1.10.9"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.1"
+bandit = "^1.7.5"
+black = "^23.3.0"
+coverage = "^7.2.7"
+isort = "^5.12.0"
+pre-commit = "^3.3.3"
+pre-commit-hooks = "^4.4.0"
+pyupgrade = "^3.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+pretty = true
+show_column_numbers = true
+show_error_context = true
+plugins = ["pydantic.mypy"]
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+lines_after_imports = 2
